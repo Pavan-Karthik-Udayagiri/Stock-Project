@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS upstox_connections (connection_id TEXT PRIMARY KEY, encrypted_token TEXT NOT NULL, token_iv TEXT NOT NULL, updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(), profile_json JSONB)

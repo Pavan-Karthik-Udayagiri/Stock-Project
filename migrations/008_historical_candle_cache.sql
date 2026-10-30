@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS historical_candle_cache (instrument_key TEXT PRIMARY KEY, symbol TEXT NOT NULL, candles JSONB NOT NULL, from_date DATE, to_date DATE, fetched_at TIMESTAMPTZ NOT NULL DEFAULT NOW());

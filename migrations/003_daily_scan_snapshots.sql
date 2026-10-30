@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS daily_scan_snapshots (id BIGSERIAL PRIMARY KEY, generated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(), mode TEXT NOT NULL, universe_count INTEGER, quoted_count INTEGER, analyzed_count INTEGER, qualified_count INTEGER, payload JSONB, error_text TEXT)

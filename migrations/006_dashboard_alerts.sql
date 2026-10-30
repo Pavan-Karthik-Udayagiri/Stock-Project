@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS dashboard_alert_settings (
+  id BIGSERIAL PRIMARY KEY,
+  owner_key TEXT NOT NULL UNIQUE DEFAULT 'primary',
+  email TEXT NOT NULL,
+  enabled BOOLEAN NOT NULL DEFAULT TRUE,
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);

@@ -1,0 +1,19 @@
+[[secret]]
+name = "UPSTOX_CLIENT_ID"
+expose = true
+
+[[secret]]
+name = "UPSTOX_CLIENT_SECRET"
+expose = true
+
+[[secret]]
+name = "UPSTOX_REDIRECT_URI"
+expose = true
+
+[[secret]]
+name = "UPSTOX_TOKEN_ENCRYPTION_KEY"
+expose = true
+
+[[cron]]
+path = "/api/jobs/daily-scan"
+schedule = "15 10 * * 1-5"

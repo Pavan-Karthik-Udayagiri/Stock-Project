@@ -1,0 +1,4 @@
+import { db } from "hatchable";
+export const access="admin";
+export const methods=["GET"];
+export default async function(req,res){try{const r=await db.query("SELECT id,started_at,finished_at,status,universe_count,quoted_count,analyzed_count,qualified_count,failure_count,details,error_text FROM scan_run_health ORDER BY started_at DESC LIMIT 30");const last=r.rows[0]||null;return res.json({ok:true,generatedAt:new Date().toISOString(),runs:r.rows,summary:{runs:r.rows.length,lastStatus:last?.status||"no runs",lastFinishedAt:last?.finished_at||null,failures:r.rows.filter(x=>x.status==="error"||x.status==="partial").length,fullRuns:r.rows.filter(x=>x.status==="live").length}});}catch(e){return res.status(500).json({ok:false,error:e.message||"Could not load scan health history",note:"If this is a fresh deployment, confirm the scan health database migration completed."});}}
